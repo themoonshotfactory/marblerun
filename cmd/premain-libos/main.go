@@ -61,6 +61,7 @@ func main() {
 	}
 
 	// Launch service
+	log.Println("Launching", strings.Join(os.Args, " "))
 	if err := unix.Exec(service, os.Args, os.Environ()); err != nil {
 		panic(err)
 	}
