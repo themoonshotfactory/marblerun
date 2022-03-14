@@ -49,7 +49,7 @@ func (m *ERTValidator) Validate(givenQuote []byte, cert []byte, pp quote.Package
 		SecurityVersion: &report.SecurityVersion,
 	}
 	if !pp.IsCompliant(reportedProps) {
-		return fmt.Errorf("PackageProperties not compliant:\n%v\n%v", reportedProps, pp)
+		return fmt.Errorf("PackageProperties not compliant:Reported\n%vExpected\n%v", reportedProps, pp)
 	}
 
 	// TODO Verify InfrastructureProperties with information from OE Quote

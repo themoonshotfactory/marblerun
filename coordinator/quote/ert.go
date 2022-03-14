@@ -7,6 +7,8 @@
 package quote
 
 import (
+	"encoding/json"
+	"fmt"
 	"strings"
 
 	"github.com/google/go-cmp/cmp"
@@ -25,6 +27,14 @@ type PackageProperties struct {
 	ProductID *uint64
 	// Security version number of the package
 	SecurityVersion *uint
+}
+
+func (pp *PackageProperties) String() string {
+	pp_, err := json.Marshal(pp)
+	if err != nil {
+		return ""
+	}
+	return fmt.Sprint(string(pp_))
 }
 
 // InfrastructureProperties contains the infrastructure-specific properties of a SGX DCAP quote
